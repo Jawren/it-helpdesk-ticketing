@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Ticket · IT Help Desk</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">IT Help Desk</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="create.html">New Ticket</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div id="alertArea"></div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="h3 mb-1">Submit an IT support ticket</h1>
+        <p class="text-body-secondary mb-4">The ticket number, status and date are set automatically.</p>
+
+        <div class="card">
+          <div class="card-body">
+            <form id="ticketForm" novalidate>
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <label for="firstName" class="form-label">First name</label>
+                  <input type="text" class="form-control" id="firstName" maxlength="30" autocomplete="given-name">
+                  <div class="invalid-feedback" id="firstNameError"></div>
+                </div>
+                <div class="col-md-4">
+                  <label for="middleName" class="form-label">Middle name <span class="text-body-secondary small">(optional)</span></label>
+                  <input type="text" class="form-control" id="middleName" maxlength="30" autocomplete="additional-name">
+                  <div class="invalid-feedback" id="middleNameError"></div>
+                </div>
+                <div class="col-md-4">
+                  <label for="lastName" class="form-label">Last name</label>
+                  <input type="text" class="form-control" id="lastName" maxlength="30" autocomplete="family-name">
+                  <div class="invalid-feedback" id="lastNameError"></div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                  <label for="category" class="form-label">Category</label>
+                  <select class="form-select" id="category"></select>
+                  <div class="invalid-feedback" id="categoryError"></div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="priority" class="form-label">Priority</label>
+                  <select class="form-select" id="priority"></select>
+                  <div class="invalid-feedback" id="priorityError"></div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description of the problem</label>
+                <textarea class="form-control" id="description" rows="5" maxlength="500"
+                          placeholder="What happened, where, and since when?"></textarea>
+                <div class="invalid-feedback" id="descriptionError"></div>
+                <div class="form-text"><span id="descriptionCount">0</span> / 500 characters (minimum 10)</div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Submit ticket</button>
+                <button type="reset" class="btn btn-outline-secondary">Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/rules.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/create.js"></script>
+</body>
+</html>

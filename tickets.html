@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tickets · IT Help Desk</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">IT Help Desk</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link" href="create.html">New Ticket</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div id="alertArea"></div>
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <h1 class="h3 mb-0">Tickets</h1>
+      <a href="create.html" class="btn btn-primary">+ New Ticket</a>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row g-2">
+          <div class="col-12 col-lg-4">
+            <label for="filterKeyword" class="form-label small mb-1">Search description</label>
+            <input type="search" class="form-control" id="filterKeyword" placeholder="e.g. printer, wifi">
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterStatus" class="form-label small mb-1">Status</label>
+            <select class="form-select" id="filterStatus"></select>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterPriority" class="form-label small mb-1">Priority</label>
+            <select class="form-select" id="filterPriority"></select>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterCategory" class="form-label small mb-1">Category</label>
+            <select class="form-select" id="filterCategory"></select>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterTechnician" class="form-label small mb-1">Technician</label>
+            <select class="form-select" id="filterTechnician"></select>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <label for="sortBy" class="form-label small mb-1">Sort by</label>
+            <select class="form-select" id="sortBy">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="priority">Priority (Critical first)</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 d-flex align-items-end">
+            <button type="button" class="btn btn-outline-secondary w-100" id="clearFilters">Clear filters</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-body-secondary small mb-2" id="resultCount">Showing 0 of 0 tickets</p>
+
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Ticket No.</th>
+              <th scope="col">Requester</th>
+              <th scope="col">Category</th>
+              <th scope="col">Description</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Status</th>
+              <th scope="col">Technician</th>
+              <th scope="col">Created</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="ticketTableBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyMessage" class="text-center text-body-secondary py-4 d-none"></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/rules.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/tickets.js"></script>
+</body>
+</html>

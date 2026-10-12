@@ -1,0 +1,45 @@
+/* styles.css — small additions on top of Bootstrap. */
+
+body {
+  background-color: #f5f6f8;
+}
+
+.stat-card {
+  border-width: 2px;
+  height: 100%;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Without this, the hidden "Actions" header label (position: absolute)
+   escapes the table's scroll box and the whole page scrolls sideways on phones. */
+.table-responsive {
+  position: relative;
+}
+
+/* Keep long descriptions readable inside the table. */
+.description-cell {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Keep line breaks the user typed in descriptions and notes. */
+.preserve-lines {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-item + .note-item {
+  border-top: 1px solid var(--bs-border-color);
+}
+
+.detail-label {
+  color: var(--bs-secondary-color);
+  font-size: 0.875rem;
+}
